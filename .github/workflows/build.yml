@@ -1,0 +1,37 @@
+name: Build and Publish
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16
+
+      - name: Install dependencies
+        uses: bahmutov/npm-install@v1
+
+      - name: Build Project
+        run: npm run build
+
+      - name: Copy to webserver folder
+        uses: appleboy/scp-action@v0.1.4
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          port: ${{ secrets.PORT }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: dist/*
+          target: "/var/www/${{ secrets.DOMAIN }}"
+          strip_components: 1
