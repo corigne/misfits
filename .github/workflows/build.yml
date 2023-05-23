@@ -16,6 +16,9 @@ jobs:
       - name: Show build files (before)
         run: ls ${{github.workspace}}
         
+      - name: Clean Install to Include all Dependencies
+        run: npm ci
+        
       - name: Build Project
         run: npm run build
         
