@@ -23,4 +23,4 @@ jobs:
         run: ls ${{github.workspace}}/dist
         
       - name: Copy to webserver folder
-        run: cp -r ${{github.workspace}}/dist/* $HOME/web
+        run: cp -r ${{github.workspace}}/dist/* /var/www/dev.misfits.rip
