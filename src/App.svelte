@@ -6,7 +6,7 @@
 </script>
 
 <main>
-  
+
   <div>
     <h1>
       Under Construction...
@@ -25,12 +25,13 @@
     <a href="https://svelte.dev" target="_blank" rel="noreferrer">
       <img src={svelteLogo} class="logo svelte" alt="Svelte Logo" />
     </a>
+    <h3>Built with Vite & Svelte</h3>
   </div>
-  <h2>Vite + Svelte</h2>
 
 </main>
 
 <style>
+
   .logo {
     height: 3em;
     padding: 1em;
@@ -43,7 +44,5 @@
   .logo.svelte:hover {
     filter: drop-shadow(0 0 2em #ff3e00aa);
   }
-  .read-the-docs {
-    color: #888;
-  }
+
 </style>
