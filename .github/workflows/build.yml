@@ -22,13 +22,15 @@ jobs:
       - name: Install dependencies
         uses: bahmutov/npm-install@v1
         
-      - uses: webfactory/ssh-agent@v0.7.0
-        with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-        
       - name: Build Project
         run: npm run build
         
       - name: Copy to webserver folder
-        run: scp -r .dist/* nexus@dev.misfits.rip:/var/www/dev.misfits.rip/
-        
+        uses: appleboy/scp-action@v0.1.4
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          port: ${{ secrets.PORT }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: ./dist/*
+          target: "/var/www/${{ secrets.DOMAIN }}"
