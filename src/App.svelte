@@ -8,9 +8,9 @@
 <main>
 
   <div>
-    <h1>
-      Under Construction...
-    </h1>
+    <h2>
+      Resume Under Construction...
+    </h2>
     <img src={carp} alt="An image of a carp.">
   </div>
 
