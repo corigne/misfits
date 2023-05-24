@@ -11,7 +11,7 @@
     <h2>
       Resume Under Construction...
     </h2>
-    <img src={carp} alt="An image of a carp.">
+    <img src={carp} alt="A carp.">
   </div>
 
   <div class="card">
