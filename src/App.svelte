@@ -14,6 +14,10 @@
     <img src={carp} alt="An image of a carp.">
   </div>
 
+  <div class="card">
+    <Counter />
+  </div>
+
   <div>
     <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
       <img src={viteLogo} class="logo" alt="Vite Logo" />
@@ -22,18 +26,14 @@
       <img src={svelteLogo} class="logo svelte" alt="Svelte Logo" />
     </a>
   </div>
-  <h1>Vite + Svelte</h1>
-
-  <div class="card">
-    <Counter />
-  </div>
+  <h2>Vite + Svelte</h2>
 
 </main>
 
 <style>
   .logo {
-    height: 6em;
-    padding: 1.5em;
+    height: 3em;
+    padding: 1em;
     will-change: filter;
     transition: filter 300ms;
   }
