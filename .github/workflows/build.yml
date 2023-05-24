@@ -12,16 +12,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16
 
-      - name: Show build files (before)
-        run: ls ${{github.workspace}}
+      - name: Install dependencies
+        uses: bahmutov/npm-install@v1
         
       - name: Build Project
         run: npm run build
         
-      - name: Show product
-        run: ls ${{github.workspace}}/dist
-        
       - name: Copy to webserver folder
-        run: scp -r ${{github.workspace}}/dist/* nexus@dev.misfits.rip:/var/www/dev.misfits.rip
-        
+        run: scp -r .dist/* nexus@dev.misfits.rip:/var/www/dev.misfits.rip/
