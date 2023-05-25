@@ -16,6 +16,6 @@
 
 </script>
 
-<button on:click={increment} on:load={load_count} >
+<button id='counter' on:click={increment} on:load={load_count} >
   count is {count}
 </button>
