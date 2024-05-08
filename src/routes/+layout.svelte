@@ -1,21 +1,30 @@
 <script lang="ts">
-    import Footer from "./footer.svelte";
-    import Header from "./header.svelte";
-
+import Footer from "./footer.svelte";
+import Header from "./header.svelte";
 </script>
 
 <svelte:head>
-  <style>
+    <style>
     @import url("//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css");
-  </style>
+    </style>
 </svelte:head>
 
-<Header />
-<slot />
-<Footer />
+<div class="layout">
+    <Header />
+    <main>
+        <slot />
+    </main>
+    <Footer />
+</div>
 
 <style>
-  * {
+* {
     font-family: "Hack", monospace;
-  }
+}
+.layout {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding-inline: 1em;
+}
 </style>

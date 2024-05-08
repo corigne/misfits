@@ -1,5 +1,5 @@
 <div class="content">
-    <h1>Under Construction</h1>
+    <h1>Under Carp-entry</h1>
     <img src="carp.jpg" alt="A carp being held."/>
     <p>
         Coming soon!
@@ -16,7 +16,6 @@
     .content {
         display: flex;
         flex-direction: column;
-        justify-content: center;
     }
 
     img {
