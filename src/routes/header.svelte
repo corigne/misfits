@@ -10,13 +10,13 @@ import * as config from '$lib/config'
 
         <ul class="links">
             <li>
-                <a href="/about">about</a>
+                <a href="">about</a>
             </li>
             <li>
-                <a href="/contact">contact</a>
+                <a href="">contact</a>
             </li>
             <li>
-                <a href="rss.xml" target="_blank">rss</a>
+                <a href="" target="_blank">rss</a>
             </li>
         </ul>
 
