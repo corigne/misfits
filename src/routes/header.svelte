@@ -2,13 +2,13 @@
 import * as config from '$lib/config'
 </script>
 
-<div class="header">
-    <nav>
+<div class="w-5/6 text-xl max-w-7xl flex justify-center items-center">
+    <nav class="py-5 gap-5 flex mx-auto flex-col w-10/12 items-center justify-around md:flex-row md:w-5/6 ">
         <a href="/" class="title">
             <b>{config.title}</b>
         </a>
 
-        <ul class="links">
+        <ul class="flex gap-12 justify-evenly list-none">
             <li>
                 <a href="">about</a>
             </li>
@@ -20,63 +20,6 @@ import * as config from '$lib/config'
             </li>
         </ul>
 
-        <button>Toggle</button>
+        <button class="bg-overlay2 hover:bg-sapphire font-bold py-1 px-2 rounded transition-colors">Toggle</button>
     </nav>
 </div>
-
-<style>
-.header {
-    max-width: 1200px;
-    width: 80%;
-    margin-inline: auto;
-}
-
-nav {
-    padding-block: 2em;
-}
-
-.links {
-    list-style: none;
-}
-
-a {
-    color: inherit;
-    text-decoration: none;
-}
-a:hover{
-    text-decoration: underline;
-}
-@media (max-width: 768px) {
-    .header {
-        width: 100%;
-        text-align: center;
-    }
-    .links {
-        display: flex;
-        flex-direction: column;
-        gap: 1em;
-        width: 80%;
-        margin-inline: auto;
-        padding: 0;
-    }
-    li {
-        text-align: center;
-        padding-inline: 0;
-    }
-}
-
-@media (min-width: 768px) {
-    nav {
-        display: flex;
-        justify-content: space-around;
-    }
-
-    .links {
-        max-width: 70%;
-        display: flex;
-        flex-grow: 1;
-        justify-content: space-evenly;
-        margin-block: 0;
-    }
-}
-</style>

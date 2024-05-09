@@ -2,16 +2,6 @@
     import * as config from '$lib/config'
 </script>
 
-<footer>
+<footer class="border-t my-2 pt-2">
     <p>{config.title} &copy {new Date().getFullYear()}</p>
 </footer>
-
-<style>
-    footer {
-        border-top: 1px solid gray;
-    }
-
-    p {
-        color: gray;
-    }
-</style>
