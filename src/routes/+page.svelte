@@ -1,25 +1,7 @@
-<div class="content">
-    <h1>Under Carp-entry</h1>
-    <img src="carp.jpg" alt="A carp being held."/>
-    <p>
+<div class="flex flex-col items-center">
+    <h1 class="text-bold ">Under Carp-entry</h1>
+    <img class="py-4" src="carp.jpg" alt="A carp being held."/>
+    <h2>
         Coming soon!
-    </p>
+    </h2>
 </div>
-
-<style>
-    h1 {
-        text-align: center;
-    }
-    p {
-        text-align: center;
-    }
-    .content {
-        display: flex;
-        flex-direction: column;
-    }
-
-    img {
-        width: 700px;
-        margin: auto;
-    }
-</style>

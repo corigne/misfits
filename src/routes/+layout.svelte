@@ -1,4 +1,5 @@
 <script lang="ts">
+import "../app.css"
 import Footer from "./footer.svelte"
 import Header from "./header.svelte"
 </script>
@@ -9,22 +10,13 @@ import Header from "./header.svelte"
     </style>
 </svelte:head>
 
-<div class="layout">
+<div class="flex flex-col h-screen items-center overflow-scroll">
     <Header />
-    <main>
+    <main class="bg-base text-text md:w-5/6 max-w-7xl w-full py-4 px-4 mb-auto md:rounded-lg">
         <slot />
     </main>
     <Footer />
 </div>
 
 <style>
-* {
-    font-family: "Hack", monospace;
-}
-.layout {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    padding-inline: 1em;
-}
 </style>
