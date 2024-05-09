@@ -2,6 +2,6 @@
     import * as config from '$lib/config'
 </script>
 
-<footer class="border-t my-2 pt-2">
+<footer class="border-t my-2 pt-2 text-overlay0">
     <p>{config.title} &copy {new Date().getFullYear()}</p>
 </footer>
