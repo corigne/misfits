@@ -19,17 +19,20 @@ jobs:
 
       - name: Install dependencies
         uses: bahmutov/npm-install@v1.6.0
+        with:
+          working-directory: ./frontend
 
-      - name: Build Project
+      - name: Build Frontend
+        working-directory: ./frontend
         run: npm run build
 
-      - name: Copy to webserver folder
+      - name: Copy frontend files to webserver folder
         uses: appleboy/scp-action@v0.1.4
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           port: ${{ secrets.PORT }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: build/*
+          source: frontend/build/*
           target: "/var/www/${{ secrets.DOMAIN }}"
           strip_components: 1
