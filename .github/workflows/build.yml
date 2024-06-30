@@ -25,7 +25,6 @@ jobs:
         run: npm run build
 
       - name: Copy frontend files to webserver folder
-        working-directory: ./frontend
         uses: appleboy/scp-action@v0.1.4
         with:
           host: ${{ secrets.HOST }}
@@ -35,3 +34,4 @@ jobs:
           source: build/*
           target: "/var/www/${{ secrets.DOMAIN }}"
           strip_components: 1
+        working-directory: ./frontend
