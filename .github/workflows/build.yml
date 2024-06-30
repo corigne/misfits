@@ -20,10 +20,12 @@ jobs:
       - name: Install dependencies
         uses: bahmutov/npm-install@v1.6.0
 
-      - name: Build Project
+      - name: Build Frontend
+        working-directory: ./frontend
         run: npm run build
 
-      - name: Copy to webserver folder
+      - name: Copy frontend files to webserver folder
+        working-directory: ./frontend
         uses: appleboy/scp-action@v0.1.4
         with:
           host: ${{ secrets.HOST }}
