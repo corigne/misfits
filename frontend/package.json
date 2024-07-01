@@ -28,6 +28,7 @@
   },
   "type": "module",
   "dependencies": {
-    "@sveltejs/adapter-static": "^3.0.1"
+    "@sveltejs/adapter-static": "^3.0.1",
+    "eslint": "^9.6.0"
   }
 }
