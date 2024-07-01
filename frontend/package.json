@@ -29,6 +29,7 @@
   "type": "module",
   "dependencies": {
     "@sveltejs/adapter-static": "^3.0.1",
-    "eslint": "^9.6.0"
+    "eslint": "^9.6.0",
+    "eslint-plugin-svelte": "^2.41.0"
   }
 }
