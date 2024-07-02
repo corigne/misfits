@@ -6,7 +6,7 @@ import { darkMode } from '../stores'
 </script>
 
 <div class="text-lg w-5/6 max-w-7xl flex justify-center">
-    <nav class="w-full py-5 gap-5 flex flex-col justify-between items-center md:flex-row ">
+    <nav class="w-full h-12 py-5 gap-5 flex flex-col justify-between md:flex-row ">
         <a href="/" class="title">
             <b>{config.title}</b>
         </a>
@@ -26,8 +26,8 @@ import { darkMode } from '../stores'
         <label for="dark-mode-toggle" />
         <button
             id="dark-mode-toggle"
-            class={ "h-8 p-1 text-sapphire outline outline-2 outline-base "
-                + "hover:bg-sapphire hover:text-base font-bold rounded-md transition-colors" }
+            class="text-sapphire outline outline-1 outline-base
+            hover:bg-sapphire hover:text-black font-bold p-2 rounded-md transition-colors"
             on:click={ () => {darkMode.update((d) => !d)} }
         >
             <Icon src="{($darkMode) ? Moon : Sun}" solid />
