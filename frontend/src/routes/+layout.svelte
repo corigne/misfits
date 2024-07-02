@@ -1,7 +1,13 @@
 <script lang="ts">
 import "../app.css"
+import { darkMode } from "../stores";
+import type { LayoutData } from "./$types";
+
 import Footer from "./footer.svelte"
 import Header from "./header.svelte"
+
+$: darkMode
+
 </script>
 
 <svelte:head>

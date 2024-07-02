@@ -2,7 +2,6 @@
 import * as config from '$lib/config'
 import { Icon, Moon, Sun } from 'svelte-hero-icons'
 import { darkMode } from '../stores'
-
 </script>
 
 <div class="text-lg w-5/6 max-w-7xl flex justify-center">
@@ -11,29 +10,31 @@ import { darkMode } from '../stores'
             <b>{config.title}</b>
         </a>
 
-        <ul class="flex flex-grow gap-12 justify-center list-none">
-            <li>
-                <a href="/blog/test">blog</a>
-            </li>
-            <li>
-                <a href="/about">about</a>
-            </li>
-            <li>
-                <a href="/contact">contact</a>
-            </li>
-            <li>
-                <a href="/" >rss</a>
-            </li>
-        </ul>
+        <div class="flex flex-grow gap-12 items-center justify-end list-none">
 
-        <label for="dark-mode-toggle" />
-        <button
-            id="dark-mode-toggle"
-            class={ "h-8 p-1 text-sapphire outline outline-2 outline-base "
-                + "hover:bg-sapphire hover:text-base font-bold rounded-md transition-colors" }
-            on:click={ () => {darkMode.update((d) => !d)} }
-        >
-            <Icon src="{($darkMode) ? Moon : Sun}" solid />
-        </button>
+            <ul class="flex flex-grow justify-center gap-10">
+                <li>
+                    <a href="/blog">blog</a>
+                </li>
+                <li>
+                    <a href="/about">about</a>
+                </li>
+                <li>
+                    <a href="/contact">contact</a>
+                </li>
+                <li>
+                    <a href="/" >rss</a>
+                </li>
+            </ul>
+            <label for="dark-mode-toggle" />
+            <button
+                id="dark-mode-toggle"
+                class={ "h-8 w-8 p-1 text-sapphire outline outline-2 outline-base "
+                    + "hover:bg-sapphire hover:text-base font-bold rounded-md transition-colors" }
+                on:click={ () => {darkMode.set(!$darkMode)} }
+            >
+                <Icon src="{($darkMode) ? Moon : Sun}" solid />
+            </button>
+        </div>
     </nav>
 </div>

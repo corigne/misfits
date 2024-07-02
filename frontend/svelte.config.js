@@ -1,5 +1,6 @@
-import adapter from "@sveltejs/adapter-static";
-import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
+import adapter from '@sveltejs/adapter-node'
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte'
+import { createHighlighter } from '@svelte-dev/pretty-code'
 
 import { mdsvex } from 'mdsvex';
 
@@ -11,11 +12,25 @@ const mdsvexOptions = {
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
     extensions: ['.svelte', '.md'],
-    preprocess: [vitePreprocess(), mdsvex(mdsvexOptions)],
+
+    preprocess: [
+        mdsvex(mdsvexOptions),
+        vitePreprocess(),
+    ],
+
+    highlight: {
+        highlighter: createHighlighter ({
+            createBackground: true,
+            theme: {
+                dark: 'catppuccin-frappe',
+                light: 'catppuccin-latte'
+            }
+        })
+    },
 
     kit: {
         prerender: {
-            handleHttpError: ({ path, referrer, message }) => {
+            handleHttpError: ({ path, message }) => {
                 if (path === '/not-found' ) {
                     return
                 }
