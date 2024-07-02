@@ -33,6 +33,6 @@ jobs:
           username: ${{ secrets.USERNAME }}
           port: ${{ secrets.PORT }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: ./frontend/build/*
+          source: "frontend/build/"
           target: "/var/www/${{ secrets.DOMAIN }}"
-          strip_components: 1
+          strip_components: 2

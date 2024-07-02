@@ -13,10 +13,13 @@ import { darkMode } from '../stores'
 
         <ul class="flex flex-grow gap-12 justify-center list-none">
             <li>
-                <a href="about">about</a>
+                <a href="/blog/test">blog</a>
             </li>
             <li>
-                <a href="contact">contact</a>
+                <a href="/about">about</a>
+            </li>
+            <li>
+                <a href="/contact">contact</a>
             </li>
             <li>
                 <a href="/" >rss</a>
