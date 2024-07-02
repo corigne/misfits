@@ -14,6 +14,16 @@ const config = {
     preprocess: [vitePreprocess(), mdsvex(mdsvexOptions)],
 
     kit: {
+        prerender: {
+            handleHttpError: ({ path, referrer, message }) => {
+                if (path === '/not-found' ) {
+                    return
+                }
+
+                // fail path
+                throw new Error(message)
+            }
+        },
         adapter: adapter(),
     },
 };
