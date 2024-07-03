@@ -25,7 +25,7 @@
 
     }
     a {
-        @apply text-blue font-semibold
+        @apply text-sapphire font-semibold
     }
     pre {
         @apply p-2 w-full
@@ -45,11 +45,30 @@
     ul[class*="ulist"] {
         @apply list-disc ml-8 mt-1
     }
+    .me {
+        @apply rounded-[5em]
+    }
     .header {
-        a {
-            @apply text-sapphire
+        nav {
+            @apply mt-5 mb-5 h-auto md:h-12 p-2 md:p-4 gap-2 md:gap-6
+            text-sapphire drop-shadow-md bg-base md:rounded-xl
+            outline outline-1 outline-overlay0 transition-all duration-700
+        }
+        div {
+            @apply w-full
+        }
+        ul {
+            @apply w-full flex flex-grow justify-center flex-row gap-5 lg:gap-16 items-center list-none
+            transition-all duration-700
+
         }
     }
+    .darkMode_toggle {
+            @apply h-8 w-14 md:w-10 p-1 bg-crust text-sapphire transition-all ease-in duration-300
+            outline outline-1 outline-overlay0 font-bold rounded-md
+            [@media(hover:hover)]:hover:bg-sapphire [@media(hover:hover)]:hover:text-base
+    }
+
     .tags {
         @apply text-overlay0
     }
