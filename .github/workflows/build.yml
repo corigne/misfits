@@ -1,38 +1,41 @@
-name: Build and Publish
+name: Build, Test, and Transfer
 
 on:
   workflow_dispatch:
   push:
-    branches:
-      - main
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
-  build:
-    name: Pull, Build & Deploy to AWS
+  build and test:
+    name: Build and Deploy
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
 
       - name: Setup Node
         uses: actions/setup-node@v4.0.2
 
-      - name: Install dependencies
-        uses: bahmutov/npm-install@v1.6.0
+      - name: Install Node Deps
+        uses: bahmutov/npm-install@v1.10.2
         with:
           working-directory: ./frontend
 
-      - name: Build Frontend
+      - name: NPM Run Build (Vite)
         working-directory: ./frontend
         run: npm run build
+      #run tests here eventually
 
-      - name: Copy frontend files to webserver folder
-        uses: appleboy/scp-action@v0.1.4
+      - name: SCP Build Artifact to AWS
+        uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           port: ${{ secrets.PORT }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: "frontend/build/"
-          target: "/var/www/${{ secrets.DOMAIN }}"
+          source: "frontend/build,frontend/package.json,frontend/package-lock.json"
+          target: "~/${{ secrets.DOMAIN }}"
+          rm: true
           strip_components: 2
