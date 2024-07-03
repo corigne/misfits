@@ -4,10 +4,10 @@
 
 @layer base {
     body {
-        @apply bg-crust
+        @apply bg-crust transition-colors duration-700
     }
     main {
-        @apply bg-base text-text outline outline-1 outline-slate-400 drop-shadow-md
+        @apply bg-base text-text outline outline-1 outline-slate-400 drop-shadow-md transition-colors duration-700
     }
     h1 {
         @apply text-2xl font-bold py-2 mt-10 text-text
