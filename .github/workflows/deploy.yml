@@ -1,0 +1,39 @@
+name: Prepare and Publish
+
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["Build, Test and Transfer"]
+    types: [completed]
+
+jobs:
+  Prepare:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.PORT }}
+          script: | 
+            export NVM_DIR=~/.nvm
+            source ~/.nvm/nvm.sh
+            cd ~/${{ secrets.DOMAIN }}
+            npm ci --omit dev
+  Publish:
+    needs: [Prepare]
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.PORT }}
+          script: |
+            export NVM_DIR=~/.nvm
+            source ~/.nvm/nvm.sh
+            pm2 restart ${{ secrets.DOMAIN }}

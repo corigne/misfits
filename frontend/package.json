@@ -38,6 +38,7 @@
   "dependencies": {
     "@svelte-dev/pretty-code": "^1.0.0",
     "@sveltejs/adapter-node": "^5.2.0",
+    "shiki": "^1.10.1",
     "svelte-hero-icons": "^5.1.0"
   }
 }

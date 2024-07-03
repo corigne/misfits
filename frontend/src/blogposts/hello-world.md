@@ -11,11 +11,21 @@ published: true
 
 # Hello world
 
-Some text.  
+Welcome to my dev blog.  
 
+I built this from scratch with:  
+- SvelteKit 
+- mdsvex 
+- tailwind   
 
-```bash  
+## Code Blocks!
 
-echo 'some bash code in a code block'
-
+I am using [@svelte-dev/pretty-code](https://pretty-code.js.cool/) for syntax highlighting.
+```ts
+// typescript
+function greet(name: string) {
+    console.log(`Hello ${name}!`)
+}
 ```
+
+Some *more* text.
