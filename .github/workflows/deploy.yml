@@ -17,7 +17,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.PORT }}
-          script: cd ~/${{ secrets.DOMAIN }} && pwd && npm ci --omit dev
+          script: echo $(pwd) > info.txt && cd ~/${{ secrets.DOMAIN }} && && npm ci --omit dev
   Publish:
     needs: [Prepare]
     runs-on: ubuntu-latest
