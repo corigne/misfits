@@ -29,7 +29,7 @@ import { darkMode } from '../stores'
             <label for="dark-mode-toggle" />
             <button
                 id="dark-mode-toggle"
-                class={ "h-8 w-8 p-1 text-sapphire outline outline-1 outline-overlay0 shadow-md transition-all "
+                class={ "h-8 w-8 p-1 text-sapphire outline outline-1 outline-overlay0 shadow-md transition-all ease-in duration-300 "
                     + "font-bold rounded-md [@media(hover:hover)]:hover:bg-sapphire [@media(hover:hover)]:hover:text-base" }
                 on:click={ () => {darkMode.set(!$darkMode)} }
             >

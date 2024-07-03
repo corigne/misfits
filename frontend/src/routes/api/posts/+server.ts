@@ -15,6 +15,7 @@ async function getPosts():Promise<BlogPost[]> {
             metadata.published && posts.push(post)
         }
     }
+    posts.sort((a: BlogPost, b:BlogPost) => new Date(a.date).getTime() - new Date(b.date).getTime())
     return posts
 }
 

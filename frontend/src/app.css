@@ -10,10 +10,10 @@
         @apply bg-base text-text outline outline-1 outline-slate-400 drop-shadow-md transition-colors duration-700
     }
     h1 {
-        @apply text-2xl font-bold py-2 mt-10 text-text
+        @apply text-2xl font-bold py-2 mt-3 mb-1 text-text
     }
     h2 {
-        @apply text-xl font-semibold py-2 mt-5 text-subtext0
+        @apply text-xl font-semibold py-2 mt-3 text-subtext0
     }
     h3 {
         @apply text-lg italic mt-5
@@ -34,7 +34,7 @@
     }
     @media (hover: hover) {
         a:hover {
-            @apply invert drop-shadow-2xl transition-all
+            @apply invert drop-shadow-2xl transition-all duration-300 ease-in
         }
     }
 }
