@@ -7,6 +7,14 @@ import { mdsvex } from 'mdsvex';
 /** @type {import{'mdsvex'}.MdsvexOptions} */
 const mdsvexOptions = {
     extensions: ['.md'],
+    highlight: {
+        highlighter: createHighlighter({
+            theme: {
+                light: 'catppuccin-latte',
+                dark: 'catppuccin-macchiato',
+            }
+        })
+    },
 };
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -17,16 +25,6 @@ const config = {
         mdsvex(mdsvexOptions),
         vitePreprocess(),
     ],
-
-    highlight: {
-        highlighter: createHighlighter ({
-            createBackground: true,
-            theme: {
-                dark: 'catppuccin-frappe',
-                light: 'catppuccin-latte'
-            }
-        })
-    },
 
     kit: {
         prerender: {

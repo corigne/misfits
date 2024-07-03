@@ -12,20 +12,19 @@ export let data : PageData
 <article>
 
     <hgroup>
-        <h1>{data.meta.title}</h1>
-        <p>Published on {new Date(data.meta.data).toString()}</p>
+        <h1 class="text-4xl">{data.meta.title}</h1>
+        <p>Published on {new Date(data.meta.date).toLocaleDateString()}</p>
     </hgroup>
 
     <div class="tags">
         {#each data.meta.categories as category}
-            <span class="text-surface2">&num;{category} </span>
+            <span>&num;{category} </span>
         {/each}
     </div>
 
     <div class="prose">
         <svelte:component this={data.content}/>
     </div>
-
 
 </article>
 

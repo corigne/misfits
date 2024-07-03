@@ -3,18 +3,63 @@
 @tailwind utilities;
 
 @layer base {
+    body {
+        @apply bg-crust
+    }
+    main {
+        @apply bg-base text-text outline outline-1 outline-slate-400 drop-shadow-md
+    }
     h1 {
-        @apply text-2xl font-bold py-2
+        @apply text-2xl font-bold py-2 mt-10 text-text
     }
     h2 {
-        @apply text-xl font-semibold py-2
+        @apply text-xl font-semibold py-2 mt-5 text-subtext0
+    }
+    h3 {
+        @apply text-lg italic mt-5
+    }
+    h4 {
+
     }
     a {
-        @apply text-sapphire font-semibold
+        @apply text-blue font-semibold
+    }
+    pre {
+        @apply p-2 w-full
+    }
+    code {
+        @apply py-2 px-4 rounded-lg outline outline-1 outline-slate-400 drop-shadow-md
     }
     @media (hover: hover) {
         a:hover {
-            @apply underline
+            @apply invert drop-shadow-2xl transition-all
+        }
+    }
+}
+
+@layer components {
+    .header {
+        a {
+            @apply text-sapphire
+        }
+    }
+    .tags {
+        @apply text-overlay0
+    }
+}
+
+code[data-theme*=' '],
+code[data-theme*=' '] span {
+    color: var(--shiki-light);
+    background-color: var(--shiki-light-bg);
+}
+
+html[class*='dark']{
+    @media (prefers-color-scheme: dark) {
+        code[data-theme*=' '],
+        code[data-theme*=' '] span {
+            color: var(--shiki-dark);
+            background-color: var(--shiki-dark-bg);
         }
     }
 }

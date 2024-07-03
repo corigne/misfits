@@ -4,7 +4,7 @@ import { Icon, Moon, Sun } from 'svelte-hero-icons'
 import { darkMode } from '../stores'
 </script>
 
-<div class="text-lg w-5/6 max-w-7xl flex justify-center">
+<div class="header text-lg w-5/6 max-w-7xl flex justify-center">
     <nav class="w-full py-5 gap-5 flex flex-col justify-between items-center md:flex-row ">
         <a href="/" class="title">
             <b>{config.title}</b>
@@ -29,8 +29,8 @@ import { darkMode } from '../stores'
             <label for="dark-mode-toggle" />
             <button
                 id="dark-mode-toggle"
-                class={ "h-8 w-8 p-1 text-sapphire outline outline-2 outline-base "
-                    + "[@media(hover:hover)]:hover:bg-sapphire [@media(hover:hover)]:hover:text-base font-bold rounded-md transition-colors" }
+                class={ "h-8 w-8 p-1 text-sapphire outline outline-1 outline-overlay0 shadow-md transition-all "
+                    + "font-bold rounded-md [@media(hover:hover)]:hover:bg-sapphire [@media(hover:hover)]:hover:text-base" }
                 on:click={ () => {darkMode.set(!$darkMode)} }
             >
                 <Icon src="{($darkMode) ? Moon : Sun}" solid />

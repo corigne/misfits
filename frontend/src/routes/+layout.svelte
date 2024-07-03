@@ -1,7 +1,6 @@
 <script lang="ts">
 import "../app.css"
 import { darkMode } from "../stores";
-import type { LayoutData } from "./$types";
 
 import Footer from "./footer.svelte"
 import Header from "./header.svelte"
@@ -18,7 +17,7 @@ $: darkMode
 
 <div class="flex flex-col h-screen items-center overflow-scroll">
     <Header />
-    <main class="bg-base text-text md:w-5/6 max-w-7xl w-full py-4 px-4 mb-auto md:rounded-lg">
+    <main class="md:w-5/6 max-w-7xl w-full p-6 mb-auto md:rounded-lg">
         <slot />
     </main>
     <Footer />
