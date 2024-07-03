@@ -1,12 +1,16 @@
 import adapter from '@sveltejs/adapter-node'
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte'
 import { createHighlighter } from '@svelte-dev/pretty-code'
+import remarkBreaks from 'remark-breaks'
 
 import { mdsvex } from 'mdsvex';
 
 /** @type {import{'mdsvex'}.MdsvexOptions} */
 const mdsvexOptions = {
-    extensions: ['.md'],
+    extensions: ['.md', '.svelte'],
+    remarkPLugins: [
+        [remarkBreaks]
+    ],
     highlight: {
         highlighter: createHighlighter({
             theme: {
