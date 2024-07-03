@@ -18,7 +18,8 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.PORT }}
           script: | 
-            echo nexus 
+            export NVM_DIR=~/.nvm
+            source ~/.nvm/nvm.sh
             cd ~/${{ secrets.DOMAIN }}
             npm ci --omit dev
   Publish:
@@ -32,4 +33,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.PORT }}
-          script: pm2 restart ${{ secrets.DOMAIN }}
+          script: |
+            export NVM_DIR=~/.nvm
+            source ~/.nvm/nvm.sh
+            pm2 restart ${{ secrets.DOMAIN }}
