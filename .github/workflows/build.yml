@@ -1,4 +1,4 @@
-name: Build, Test, and Transfer
+name: Build, Test and Transfer
 
 on:
   workflow_dispatch:
@@ -8,8 +8,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build and test:
-    name: Build and Deploy
+  Build and Test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
