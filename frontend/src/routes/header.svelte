@@ -30,7 +30,7 @@ import { darkMode } from '../stores'
             <button
                 id="dark-mode-toggle"
                 class={ "h-8 w-8 p-1 text-sapphire outline outline-2 outline-base "
-                    + "hover:bg-sapphire hover:text-base font-bold rounded-md transition-colors" }
+                    + "[@media(hover:hover)]:hover:bg-sapphire [@media(hover:hover)]:hover:text-base font-bold rounded-md transition-colors" }
                 on:click={ () => {darkMode.set(!$darkMode)} }
             >
                 <Icon src="{($darkMode) ? Moon : Sun}" solid />

@@ -35,4 +35,4 @@ jobs:
           source: "frontend/build,frontend/package.json,frontend/package-lock.json"
           target: "~/${{ secrets.DOMAIN }}"
           rm: true
-          strip_components: 2
+          strip_components: 1

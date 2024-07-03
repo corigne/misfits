@@ -12,7 +12,9 @@
     a {
         @apply text-sapphire font-semibold
     }
-    a:hover {
-        @apply underline
+    @media (hover: hover) {
+        a:hover {
+            @apply underline
+        }
     }
 }
