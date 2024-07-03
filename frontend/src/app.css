@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer base {
+    html {
+        display: block
+    }
     body {
         @apply bg-crust transition-colors duration-700
     }
@@ -38,8 +41,10 @@
         }
     }
 }
-
 @layer components {
+    ul[class*="ulist"] {
+        @apply list-disc ml-8 mt-1
+    }
     .header {
         a {
             @apply text-sapphire
@@ -49,6 +54,7 @@
         @apply text-overlay0
     }
 }
+
 
 code[data-theme*=' '],
 code[data-theme*=' '] span {

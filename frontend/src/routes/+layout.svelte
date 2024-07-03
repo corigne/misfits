@@ -1,12 +1,7 @@
 <script lang="ts">
-import "../app.css"
-import { darkMode } from "../stores";
-
 import Footer from "./footer.svelte"
 import Header from "./header.svelte"
-
-$: darkMode
-
+import '../app.css'
 </script>
 
 <svelte:head>
