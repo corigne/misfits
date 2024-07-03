@@ -28,7 +28,7 @@
         @apply p-2 w-full
     }
     code {
-        @apply py-2 px-4 rounded-lg outline outline-1 outline-slate-400 drop-shadow-md
+        @apply py-2 px-4 rounded-lg outline outline-1 outline-slate-400 drop-shadow-md transition-colors duration-700
     }
     @media (hover: hover) {
         a:hover {
