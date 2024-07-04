@@ -1,7 +1,9 @@
 <script lang="ts">
 import * as config from '$lib/config'
 import { Icon, Moon, Sun } from 'svelte-hero-icons'
-import { darkMode } from '../stores'
+import { toggleDarkMode } from '$lib/ui'
+
+let darkMode: boolean
 </script>
 
 <div class="header text-lg w-full md:w-5/6 max-w-7xl">
@@ -28,9 +30,9 @@ import { darkMode } from '../stores'
         <button
             id="dark-mode-toggle"
             class={ "darkMode_toggle" }
-            on:click={ () => {darkMode.set(!$darkMode)} }
+            on:click={ () => { darkMode = toggleDarkMode()} }
         >
-            <Icon src="{($darkMode) ? Moon : Sun}" solid />
+            <Icon src="{(darkMode) ? Sun : Moon}" solid />
         </button>
     </nav>
 </div>

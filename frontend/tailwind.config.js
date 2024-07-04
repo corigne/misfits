@@ -8,7 +8,7 @@ export default {
         },
         extend: {},
     },
-    darkMode: 'class',
+    darkMode: 'selector',
     plugins: [
         require("@catppuccin/tailwindcss"),
     ],

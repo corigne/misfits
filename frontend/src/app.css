@@ -41,6 +41,7 @@
         }
     }
 }
+
 @layer components {
     ul[class*="ulist"] {
         @apply list-disc ml-8 mt-1
@@ -71,6 +72,13 @@
 
     .tags {
         @apply text-overlay0
+    }
+}
+
+@layer utilities {
+    .preload-transitions * {
+        display: none;
+        opacity: 0;
     }
 }
 

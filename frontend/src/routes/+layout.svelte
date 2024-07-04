@@ -1,14 +1,29 @@
+<svelte:head>
+
+    <script>
+    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark')
+    } else {
+        document.documentElement.classList.remove('dark')
+    }
+    document.addEventListener("DOMContentLoaded",function(){
+        let node = document.querySelector('.preload-transitions');
+        node.classList.remove('preload-transitions');
+    })
+    </script>
+
+    <style>
+    @import url("//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css");
+    </style>
+
+</svelte:head>
+
 <script lang="ts">
 import Footer from "./footer.svelte"
 import Header from "./header.svelte"
 import '../app.css'
 </script>
-
-<svelte:head>
-    <style>
-    @import url("//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css");
-    </style>
-</svelte:head>
 
 <div class="flex flex-col h-screen items-center overflow-scroll">
     <Header />
