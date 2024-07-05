@@ -1,7 +1,10 @@
 import { browser, dev } from '$app/environment'
 import { error } from '@sveltejs/kit'
 
-export const toggleDarkMode = () => {
+export const getIsDarkMode = () => {
+    return browser && document.documentElement.classList.contains('dark')
+}
+export const toggleTheme = () => {
     const darkMode: boolean = browser && document.documentElement.classList.contains('dark')
     if (browser) {
         (darkMode)

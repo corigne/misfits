@@ -1,9 +1,6 @@
 <script lang="ts">
 import * as config from '$lib/config'
-import { Icon, Moon, Sun } from 'svelte-hero-icons'
-import { toggleDarkMode } from '$lib/ui'
-
-let darkMode: boolean
+import ThemeToggle from './components/ThemeToggle.svelte';
 </script>
 
 <div class="header text-lg w-full md:w-5/6 max-w-7xl">
@@ -27,12 +24,6 @@ let darkMode: boolean
             </li>
         </ul>
 
-        <button
-            id="dark-mode-toggle"
-            class={ "darkMode_toggle" }
-            on:click={ () => { darkMode = toggleDarkMode()} }
-        >
-            <Icon src="{(darkMode) ? Sun : Moon}" solid />
-        </button>
+        <ThemeToggle />
     </nav>
 </div>

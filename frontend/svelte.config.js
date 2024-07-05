@@ -8,7 +8,7 @@ import { mdsvex } from 'mdsvex';
 /** @type {import{'mdsvex'}.MdsvexOptions} */
 const mdsvexOptions = {
     extensions: ['.md', '.svelte'],
-    remarkPLugins: [
+    remarkPlugins: [
         [remarkBreaks, 0]
     ],
     highlight: {
