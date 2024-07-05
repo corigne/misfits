@@ -10,12 +10,12 @@
 
     </div>
 
-    <div class="flex flex-col md:flex-row items-center gap-0 md:gap-2 ">
+    <div class="flex flex-col md:flex-row items-center gap-0 md:gap-4 ">
         <aside class="w-1/4 flex justify-center">
             <img class="me max-w-[8rem] md:max-w-[12rem]" alt='pixel art of Nathan Jodoin' src="me-pixelated.png"/>
         </aside>
 
-        <article class="p-2 md:p-4">
+        <article class="p-0 md:p-4">
 
             ## Bio
 
