@@ -1,6 +1,6 @@
 <script lang="ts">
 import * as config from '$lib/config'
-import ThemeToggle from './components/ThemeToggle.svelte';
+import ThemeToggle from './ThemeToggle.svelte';
 </script>
 
 <div class="header text-lg w-full md:w-5/6 max-w-7xl">

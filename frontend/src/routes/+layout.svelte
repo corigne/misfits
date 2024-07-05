@@ -20,8 +20,8 @@
 </svelte:head>
 
 <script lang="ts">
-import Footer from "./footer.svelte"
-import Header from "./header.svelte"
+import Footer from "./components/Footer.svelte"
+import Header from "./components/Header.svelte"
 import '../app.css'
 </script>
 
