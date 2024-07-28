@@ -73,6 +73,16 @@
     .tags {
         @apply text-overlay0
     }
+    .quote-container {
+        @apply w-full lg:w-4/5 italic bg-sapphire rounded-lg my-4 mx-auto border-l-[1em] border-l-surface2
+    }
+    .quote {
+        @apply w-full text-white dark:text-base p-2 pb-2 lg:p-4 lg:pb-2
+    }
+    .quote-source {
+        @apply text-overlay2 bg-crust text-sm w-full p-2 py-1 lg:py-2 lg:p-4 text-overlay2 rounded-br-lg
+    }
+
 }
 
 @layer utilities {
@@ -81,7 +91,6 @@
         opacity: 0;
     }
 }
-
 
 code[data-theme*=' '] {
     @apply overflow-scroll
