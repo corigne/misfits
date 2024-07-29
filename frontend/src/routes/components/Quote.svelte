@@ -1,11 +1,16 @@
 <script lang="ts">
 export let source : string
 export let author : string
+export let quoted : boolean = true
 </script>
 
 <div class="quote-container">
     <div class="quote">
-        "<slot/>"
+        {#if quoted}
+            "<slot/>"
+        {:else}
+            <slot/>
+        {/if}
     </div>
     {#if source || author}
         <div class="quote-source">

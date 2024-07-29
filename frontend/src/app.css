@@ -16,16 +16,16 @@
         @apply text-2xl font-bold py-2 mt-3 mb-1 text-text
     }
     h2 {
-        @apply text-xl font-semibold py-2 mt-3 text-subtext0
+        @apply text-xl font-bold py-2 mt-3 text-subtext1
     }
     h3 {
-        @apply text-lg italic mt-5
+        @apply text-lg font-semibold italic mt-5 text-subtext0
     }
     h4 {
 
     }
     a {
-        @apply text-sapphire font-semibold
+        @apply text-cyan-700 dark:text-sapphire font-semibold
     }
     pre {
         @apply p-2 w-full
@@ -51,8 +51,8 @@
     }
     .header {
         nav {
-            @apply mt-5 mb-5 h-auto md:h-12 p-2 md:p-4 gap-2 md:gap-6
-            text-sapphire drop-shadow-md bg-base md:rounded-xl
+            @apply mt-2 mb-5 h-auto md:h-12 p-2 md:p-4 gap-2 md:gap-6
+            drop-shadow-md bg-base md:rounded-lg
             outline outline-1 outline-overlay0 transition-all duration-700
         }
         div {
@@ -61,7 +61,9 @@
         ul {
             @apply w-full flex flex-grow justify-center flex-row gap-5 lg:gap-16 items-center list-none
             transition-all duration-700
-
+        }
+        a {
+            @apply text-cyan-700 dark:text-sapphire text-lg font-bold
         }
     }
     .darkMode_toggle {
@@ -74,13 +76,31 @@
         @apply text-overlay0
     }
     .quote-container {
-        @apply w-full lg:w-4/5 italic bg-sapphire rounded-lg my-4 mx-auto border-l-[1em] border-l-surface2
+        @apply w-full lg:w-4/5 italic bg-sapphire/75 dark:bg-sapphire rounded-lg
+        my-4 mx-auto border-l-[1ex] border-l-surface2 drop-shadow-md outline outline-1 outline-surface2
     }
     .quote {
-        @apply w-full text-white dark:text-base p-2 pb-2 lg:p-4 lg:pb-2
+        @apply w-full text-slate-800 dark:text-surface0 p-2 pb-2 lg:p-4 lg:pb-2
     }
     .quote-source {
-        @apply text-overlay2 bg-crust text-sm w-full p-2 py-1 lg:py-2 lg:p-4 text-overlay2 rounded-br-lg
+        @apply text-text bg-base text-sm w-full p-2 py-1 lg:py-2 lg:p-4 rounded-br-lg
+    }
+    .note-container {
+        @apply w-full bg-base lg:w-4/5 rounded-lg my-4 mx-auto
+        border-l-[1ex] border-l-surface2 drop-shadow-md outline outline-1 outline-surface2
+    }
+    .note {
+        @apply text-black dark:text-base bg-green
+    }
+    .warning {
+        @apply text-black dark:text-base bg-yellow
+    }
+    .error {
+        @apply text-black dark:text-base bg-red
+    }
+
+    #grid {
+        @apply select-none
     }
 
 }

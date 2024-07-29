@@ -9,7 +9,7 @@ import { mdsvex } from 'mdsvex';
 const mdsvexOptions = {
     extensions: ['.md', '.svelte'],
     remarkPlugins: [
-        [remarkBreaks, 0]
+        //[remarkBreaks, 0]
     ],
     highlight: {
         highlighter: createHighlighter({
