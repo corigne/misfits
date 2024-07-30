@@ -31,7 +31,7 @@ const colors = [
 
 let grid : any
 let gridSlider : any
-let gridArr : any[][] = new Array(size).fill(new Array(size).fill(0))
+export let gridArr : number[][] = new Array(size).fill(new Array(size).fill(0))
 
 if(randomFill) {
     gridArr = gridArr.map((row) => {
@@ -66,11 +66,9 @@ const generateNewArray = (oldArr: number[][], newSize: number): number[][] => {
     return arr
 }
 
-const focusThisElement = (ev: Event) => {
-    if(ev) { 
-        const target = ev?.target as HTMLElement
-        target.scrollIntoView() 
-    }
+const focusThisElement = () => {
+        const gridEl = grid as HTMLElement
+        gridEl.scrollIntoView()
 }
 
 const toggleCellState = (ev: Event) => {
@@ -85,13 +83,14 @@ const toggleCellState = (ev: Event) => {
 }
 
 </script>
-<div class='table-container overflow-scroll'>
-    <table bind:this={grid} id='grid' class={`text-center m-auto w-[${size*8}em]`} >
+<div class='table-container overflow-scroll drop-shadow-sm'>
+    <table bind:this={grid} id='grid' class={`${size > 15 ? 'text-xs' : ''} text-center m-auto w-[${size > 15 ? size*6 : size*8}em]`} >
         {#each Array(size) as _, x}
-            <tr class={`h-8 max-h-8`}>
+            <tr class={`${size > 15 ? 'h-6 max-h-6' : 'h-8 max-h-8'}`}>
                 {#each Array(size) as _, y}
                     <td id={x + '-' + y} 
-                        class={`w-8 max-w-8 border-slate-900 dark:border-slate-100 border-4 overflow-hidden ${colors[gridArr[x][y]]}`}
+                        class={ `${size > 15 ? 'w-6 max-w-6' : 'w-8 max-w-8'} border-slate-900 dark:border-slate-100 border-[3px] `
+                            + `overflow-hidden ${colors[gridArr[x][y]]}` }
                         on:click={toggleCellState}
                     >
                         {(showState) ? gridArr[x][y] : ''}

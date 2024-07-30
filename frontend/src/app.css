@@ -86,17 +86,17 @@
         @apply text-text bg-base text-sm w-full p-2 py-1 lg:py-2 lg:p-4 rounded-br-lg
     }
     .note-container {
-        @apply w-full bg-base lg:w-4/5 rounded-lg my-4 mx-auto
+        @apply w-full bg-base lg:w-4/5 rounded-lg my-4 mx-auto font-extrabold text-xl
         border-l-[1ex] border-l-surface2 drop-shadow-md outline outline-1 outline-surface2
     }
     .note {
-        @apply text-black dark:text-base bg-green
+        @apply text-white dark:text-base bg-green
     }
     .warning {
-        @apply text-black dark:text-base bg-yellow
+        @apply text-white dark:text-base bg-yellow
     }
     .error {
-        @apply text-black dark:text-base bg-red
+        @apply text-white dark:text-base bg-red
     }
 
     #grid {

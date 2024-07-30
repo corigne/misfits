@@ -49,11 +49,11 @@ I have included a toggle below for visualizing the numeric state of each cell.
 
 <br/>
 
-<Grid size={8} resizable={false} showState={false} toggleable={true} randomFill={true} model={Models.CONWAY}/>
+<Grid size={8} resizable={true} showState={false} toggleable={true} randomFill={true} model={Models.CONWAY}/>
 
 <br/>
 
-A grid of cellular automata will change states in steps according to a specific set of rules. You may be familiar with the concept if you've ever studied state machines. The rules that govern a particular automata define its behavior. To determine the state of the system at the next step, we can make observations about the current state of each cell and the cell's neighbors-- the cells immediately surrounding that cell. Then, based on our observations and the system's rules, we can determine if a cell will transition to a different state.  
+A grid of cellular automata will change states in steps, sometimes referred to as generations, according to a specific set of rules. You may be familiar with the concept if you've ever studied state machines. The rules that govern a particular automata define its behavior. To determine the state of the system at the next step, we can make observations about the current state of each cell and the cell's neighbors-- the cells immediately surrounding that cell. Then, based on our observations and the system's rules, we can determine if a cell will transition to a different state.  
 
 <br/>
 
@@ -75,3 +75,7 @@ In Conway's game of life, there exist four rules to determine the state of a cel
         </li>
     </ul>
 </Quote>
+
+<Grid size={10} resizeable={false} showState={true} toggleable={true} model={Models.CONWAY} 
+gridArr={[]}
+/>
