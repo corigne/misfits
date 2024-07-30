@@ -21,7 +21,7 @@ const secondSeed = 'MCwwLDAsMCwwLDAsMCwwLDAsMCwwLDAsMCwwLDAsMCwwLDAsMCwwLDAsMCww
 
 # What is Conway's Game of Life?
 
-Conway's game of life is one of many cellular automaton.
+Conway's Game of Life is one of many cellular automaton.
 James Horton Conway, a British mathematician, devised the rules for his game of Life in 1970.
 
 ## What is a cellular automaton?
