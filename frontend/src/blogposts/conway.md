@@ -58,9 +58,9 @@ We can represent living cells with a value of 1, and dead cells with a value of 
 
 ## Generations
 
-A system of cellular automata will change states in discrete steps. The state at a given step is referred to as a generation. The rules that govern an automata define the transition from one generation to the next. These transitions between generations are pure functions. We won't discuss what that means here, but if you're curious you can <a href='https://en.wikipedia.org/wiki/Pure_function'>read more here</a>.
+A system of cellular automata will change states in discrete steps. The state at a given step is referred to as a generation. The rules that govern an automata define the transition from one generation to the next. These transitions between generations are pure functions. We won't discuss what that means here, but if you're curious you can <a href='https://en.wikipedia.org/wiki/Pure_function' target="_blank">read more here</a>.
 <br/>
-You may already be familiar with this concept if you've ever studied state machines. To determine the state of the system at the next step, we can make observations about the current state of each cell and the cell's neighbors. For our purposes, the neighbors of a cell are the four spaces adjacent on the x or y axis and the four spaces adjacent on the diagonals between them. This neighborhood model is called a <a href='https://en.wikipedia.org/wiki/Moore_neighborhood'>Moore neighborhood.</a>
+You may already be familiar with this concept if you've ever studied state machines. To determine the state of the system at the next step, we can make observations about the current state of each cell and the cell's neighbors. For our purposes, the neighbors of a cell are the four spaces adjacent on the x or y axis and the four spaces adjacent on the diagonals between them. This neighborhood model is called a <a href='https://en.wikipedia.org/wiki/Moore_neighborhood' target="_blank">Moore neighborhood.</a>
 
 <br/><br/>
 
@@ -110,5 +110,5 @@ If the simulation feels slow, try lowering the interval between generations usin
 
 <br/>
 
-If you're looking for some interesting things to build, the Conway's Game of Life entry on Wikipedia has a section full of <a href="https://en.wikipedia.org/wiki/Conway's_Game_of_Life#Examples_of_patterns">interesting patterns</a>.  
+If you're looking for some interesting things to build, the Conway's Game of Life entry on Wikipedia has a section full of <a href="https://en.wikipedia.org/wiki/Conway's_Game_of_Life#Examples_of_patterns" target="_blank">interesting patterns</a>.  
 
