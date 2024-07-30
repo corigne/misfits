@@ -49,6 +49,16 @@
     .button:active {
         @apply drop-shadow-md bg-overlay2
     }
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    .show-scrollbar {
+        ::-webkit-scrollbar {
+            display: auto;
+        }
+    }
 }
 
 @layer components {
@@ -89,14 +99,14 @@
         my-4 mx-auto border-l-[1ex] border-l-surface2 drop-shadow-md outline outline-1 outline-surface2
     }
     .quote {
-        @apply w-full text-slate-800 dark:text-surface0 p-2 pb-2 lg:p-4 lg:pb-2
+        @apply w-full text-slate-800 dark:text-surface0 p-2 pb-2 lg:p-4 lg:pb-2 overflow-scroll overflow-x-scroll overflow-y-hidden
     }
     .quote-source {
-        @apply text-text bg-base text-sm w-full p-2 py-1 lg:py-2 lg:p-4 rounded-br-lg
+        @apply text-text bg-base text-sm w-full p-2 py-1 lg:py-2 lg:p-4 rounded-br-lg overflow-x-scroll overflow-y-hidden
     }
     .note-container {
         @apply w-full bg-base lg:w-4/5 rounded-lg my-4 mx-auto font-extrabold text-xl
-        border-l-[1ex] border-l-surface2 drop-shadow-md outline outline-1 outline-surface2
+        border-l-[1ex] border-l-surface2 drop-shadow-md outline outline-1 outline-surface2 overflow-x-scroll overflow-y-hidden
     }
     .note {
         @apply text-white dark:text-base bg-green
@@ -119,6 +129,7 @@
         display: none;
         opacity: 0;
     }
+
 }
 
 code[data-theme*=' '] {
