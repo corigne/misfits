@@ -40,6 +40,15 @@
             @apply invert drop-shadow-2xl transition-all duration-300 ease-in
         }
     }
+    .button {
+        @apply border-black border rounded bg-surface0 font-semibold transition-all ease-in-out duration-300
+    }
+    .button:hover {
+        @apply bg-overlay0 text-white drop-shadow-lg
+    }
+    .button:active {
+        @apply drop-shadow-md bg-overlay2
+    }
 }
 
 @layer components {
