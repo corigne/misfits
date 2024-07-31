@@ -212,12 +212,12 @@ export const stopPlaying = () => {
 </script>
 
 <div id={id} class='table-container overflow-scroll drop-shadow-sm mt-2 mb-2'>
-    <table bind:this={grid} id='grid' class={`${size > 15 ? 'text-xs' : ''} text-center m-auto w-[${size > 15 ? size*6 : size*8}em]`} >
+    <table bind:this={grid} id='grid' class={`${size > 15 ? 'text-xs' : ''} m-auto text-center ${size > 14 ? 'w-['+size*4+'em] md:w-['+size*6+'em]' : 'w-['+size*6+'em] md:w-['+size*8}+'em]'`} >
         {#each Array(size) as _, x}
-            <tr class={`${size > 15 ? 'h-6 max-h-6' : 'h-8 max-h-8'}`}>
+            <tr class={`${size > 14 ? 'h-4 max-h-4 md:h-6 md:max-h-6' : 'h-6 max-h-6 md:h-8 md:max-h-8'}`}>
                 {#each Array(size) as _, y}
                     <td id={x + '-' + y} 
-                        class={ `${size > 15 ? 'w-6 max-w-6 border' : 'w-8 max-w-8 border-2'} border-slate-900 dark:border-slate-200 `
+                        class={ `${size > 14 ? 'w-4 max-w-4 md:w-6 md:max-w-6 border' : 'w-6 max-w-6 md:w-8 md:max-w-8 border-2'} border-slate-900 dark:border-slate-200 `
                             + `overflow-hidden ${colors[gridArr[x][y]]}` }
                         on:click={toggleCellState}
                     >
