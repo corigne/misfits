@@ -209,15 +209,26 @@ export const stopPlaying = () => {
     timer = undefined
 }
 
+const getTableStyle = () => {
+    return size < 15 
+        ? 'w-[' + size*4 + 'em] md:w-['+size*6 + 'em]' 
+        : 'w-[' + size*6 + 'em] md:w-['+size*8 + 'em] text-xs'
+}
+const getCellStyle = () => {
+    return size < 15 
+        ? 'border-2 w-6 max-w-6 h-6 max-h-6 md:w-8 md:max-w-8 md:h-8 md:max-h-8' 
+        : 'border w-4 max-w-4 h-4 max-h-4 leading-none md:w-6 md:max-w-6 md:h-6 md:max-h-6'
+}
+
 </script>
 
 <div id={id} class='table-container overflow-scroll drop-shadow-sm mt-2 mb-2'>
-    <table bind:this={grid} id='grid' class={`${size > 15 ? 'text-xs' : ''} m-auto text-center ${size > 14 ? 'w-['+size*4+'em] md:w-['+size*6+'em]' : 'w-['+size*6+'em] md:w-['+size*8}+'em]'`} >
+    <table bind:this={grid} id='grid' class={`m-auto text-center ${getTableStyle()}`} >
         {#each Array(size) as _, x}
-            <tr class={`${size > 14 ? 'h-4 max-h-4 md:h-6 md:max-h-6' : 'h-6 max-h-6 md:h-8 md:max-h-8'}`}>
+            <tr>
                 {#each Array(size) as _, y}
                     <td id={x + '-' + y} 
-                        class={ `${size > 14 ? 'w-4 max-w-4 md:w-6 md:max-w-6 border' : 'w-6 max-w-6 md:w-8 md:max-w-8 border-2'} border-slate-900 dark:border-slate-200 `
+                        class={ `${getCellStyle()} border-slate-900 dark:border-slate-200 `
                             + `overflow-hidden ${colors[gridArr[x][y]]}` }
                         on:click={toggleCellState}
                     >
@@ -231,8 +242,8 @@ export const stopPlaying = () => {
 {#if isResizable || isToggleable}
     <div class='grid-slider flex flex-col gap-1 justify-center items-center'>
         {#if isResizable}
-            <div>
-                <label for='Grid Size' class='p-2 text-sm'>Grid Size {size} x {size}</label>
+            <div class="flex flex-col md:flex-row justify-center items-center">
+                <label for='Grid Size' class='p-2 text-sm flex-nowrap'>Grid Size {size} x {size}</label>
                 <input class='slider' type='range' min='5' max='25' 
                     bind:this={gridSlider}
                     bind:value={size}
@@ -311,7 +322,7 @@ export const stopPlaying = () => {
             {/if}
         </div>
         {#if isPlayable}
-            <div>
+            <div class="flex flex-col md:flex-row justify-center items-center">
                 <label for='timestep-length-slider' class='p-2 text-sm'>Interval: {intervalSec.toFixed(2)} s</label>
                 <input id='timestep-length-slider' class='slider' type='range' min='0.1' max='2.0' step='.05' 
                     bind:value={intervalSec}

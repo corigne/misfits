@@ -27,7 +27,7 @@ import '../app.css'
 
 <div class="flex flex-col h-screen items-center overflow-scroll">
     <Header />
-    <main class="md:w-5/6 max-w-7xl w-full p-8 mb-auto md:rounded-lg">
+    <main class="md:w-5/6 max-w-7xl w-full p-2 md:p-8 mb-auto md:rounded-lg">
         <slot />
     </main>
     <Footer />
