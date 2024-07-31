@@ -28,23 +28,20 @@ const render = (posts: BlogPost[]) => {
             <link>${config.url}</link>
             <description>Nathan Jodoin's blog, with topics including software,
             computer science, and random thoughts.</description>
-            ${
-            posts.map( (post) => {
-            (post.published)
-            ?
-            `<item>
-            <guid>${config.url}/blog/${post.slug}</guid>
-            <title>${post.title}</title>
-            <link>${config.url}/blog/${post.slug}</link>
-            <description>${post.description}</description>
-            <pubDate>${new Date(post.date).toUTCString()}</pubDate>
-            </item>`
-            : ''
-            }).join('')
-            }
+            ${posts.map( (post) => {
+                if (post.published)
+                return `<item>
+                    <guid>${config.url}/blog/${post.slug}</guid>
+                    <title>${post.title}</title>
+                    <link>${config.url}/blog/${post.slug}</link>
+                    <description>${post.description}</description>
+                    <pubDate>${new Date(post.date).toUTCString()}</pubDate>
+                    </item>`
+            }).join('')}
         </channel>
         </rss>
         `
+    console.log(body)
     return body
 }
 
