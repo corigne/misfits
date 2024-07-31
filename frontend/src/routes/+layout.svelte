@@ -1,5 +1,12 @@
-<svelte:head>
+<script lang="ts">
+import Footer from "./components/Footer.svelte"
+import Header from "./components/Header.svelte"
+import '../app.css'
+import { url } from '../lib/config'
+</script>
 
+<svelte:head>
+    <link rel="alternate" type="application/rss+xml" title="Subscribe to the jodoin.io RSS Feed!" href={`${url}/rss.xml`} />
     <script>
     // On page load or when changing themes, best to add inline in `head` to avoid FOUC
     if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -19,11 +26,6 @@
 
 </svelte:head>
 
-<script lang="ts">
-import Footer from "./components/Footer.svelte"
-import Header from "./components/Header.svelte"
-import '../app.css'
-</script>
 
 <div class="flex flex-col h-screen items-center overflow-scroll">
     <Header />

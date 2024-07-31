@@ -20,7 +20,7 @@ import ThemeToggle from './ThemeToggle.svelte';
                 <a href="/contact">contact</a>
             </li>
             <li>
-                <a href="/" >rss</a>
+                <a href={`${config.url}/rss.xml`} target="_blank">rss</a>
             </li>
         </ul>
 

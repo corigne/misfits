@@ -21,5 +21,5 @@ async function getPosts():Promise<BlogPost[]> {
 
 export async function GET() {
     const posts = await getPosts()
-    return json(posts)
+    return json(posts.filter((post) => post.published))
 }
