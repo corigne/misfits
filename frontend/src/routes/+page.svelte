@@ -1,5 +1,6 @@
 <script context="module">
     import Grid, { Models } from "./components/Grid.svelte";
+    import * as config from '$lib/config'
 </script>
 
 <div class="flex flex-col text-center">
