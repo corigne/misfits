@@ -50,7 +50,9 @@ Cells have a finite number of states. For now, we will describe cells as 'dead' 
 <br/>
 We can represent living cells with a value of 1, and dead cells with a value of 0. In the example below, gray squares are 'dead' (state 0) and sapphire-blue squares are 'alive' (state 1). In more complex systems, we might represent the numerous transitional states with a sequence of colors, names, and/or numbers. In example below, you may experiment with toggling cell states by left-clicking any cell.
 
-<Grid size={7} isResizable={false} isStateVisible={false} isToggleable={true} isRandom={true} model={Models.CONWAY}/>
+<Grid size={7} isResizable={false} isStateVisible={false} isToggleable={true} 
+    isRandom={true} model={Models.CONWAY} hasStateToggle={true}
+/>
 <Note type={NoteType.NOTE}>
     Click the checkbox above to view the numeric state of the automata.
 </Note>
@@ -86,9 +88,8 @@ Based on our observations of each neighbor's state and the system's rules, we ca
 Here's an example of Conway's game of Life with a simple seed.
 
 <Grid
-    size={10} isToggleable={false} model={Models.CONWAY} isManual={true} 
-    isLooped={true} isAutoplayed={true} isClearable={false}
-    seed={firstSeed} 
+    size={10} isToggleable={false} model={Models.CONWAY} isManual={true} hasStateToggle={true}
+    isLooped={true} isAutoplayed={true} isClearable={false} seed={firstSeed} 
 />
 
 # Your Turn
@@ -99,7 +100,7 @@ I've enabled all the controls for you as well!
 <br/>
 
 <Grid 
-    size={15} isResizable={true} isStateVisible={false} isToggleable={true} isRandomizable={true} 
+    size={15} isResizable={true} isStateVisible={false} isToggleable={true} isRandomizable={true} hasStateToggle={true}
     model={Models.CONWAY} isManual={true} isPlayable={true} isLooped={false} seed={secondSeed} intervalSec={0.8}
 />
 

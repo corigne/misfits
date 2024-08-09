@@ -49,6 +49,7 @@ export let isClearable: boolean = false
 export let isRandom : boolean = false
 export let isStateVisible : boolean = false
 export let isToggleable : boolean = false
+export let hasStateToggle : boolean = false
 export let isRandomizable : boolean = false
 export let isManual: boolean = false
 export let isPlayable: boolean = false
@@ -56,7 +57,7 @@ export let isLooped: boolean = false
 export let isAutoplayed: boolean = false
 export let model: Model = Models.DEFAULT
 export let seed: string = ''
-export let intervalSec : number = 1.5
+export let intervalSec : number = 1.2
 export let id: string = ''
 
 const colors = [
@@ -122,14 +123,14 @@ onMount(() => {
         let observer = new IntersectionObserver((entries: IntersectionObserverEntry[]) => {
             entries.forEach((entry: IntersectionObserverEntry) => {
                 if(entry.target === grid) {
-                    if (entry.intersectionRatio !=1) {
+                    if (entry.intersectionRatio < 0.5) {
                         stopPlaying()
                     } else {
                         startPlaying()
                     }
                 }
             });
-        }, {threshold: 1})
+        }, {threshold: 0.5})
         observer.observe(grid)
     }
 })
@@ -195,10 +196,12 @@ export const startPlaying = () => {
         if (isStale) { 
             if (!isLooped) { 
                 stopPlaying() 
+                if (seed) { fillSeed() } else if (isRandom) { fillRandomly() } else { fillZero() }
+                wait(1000)
+                return
             }
-            wait(1000)
             if (seed) { fillSeed() } else if (isRandom) { fillRandomly() } else { fillZero() }
-            return
+            wait(250)
         }
         startPlaying()
     }, intervalSec * 1000);
@@ -239,7 +242,7 @@ const getCellStyle = () => {
         {/each}
     </table>
 </div>
-{#if isResizable || isToggleable}
+{#if isResizable || hasStateToggle}
     <div class='grid-slider flex flex-col gap-1 justify-center items-center'>
         {#if isResizable}
             <div class="flex flex-col md:flex-row justify-center items-center">
@@ -251,7 +254,7 @@ const getCellStyle = () => {
                 />
             </div>
         {/if}
-        {#if isToggleable}
+        {#if hasStateToggle}
             <div>
                 <label 
                     for='vis-impaired-toggle' 
@@ -324,7 +327,7 @@ const getCellStyle = () => {
         {#if isPlayable}
             <div class="flex flex-col md:flex-row justify-center items-center">
                 <label for='timestep-length-slider' class='p-2 text-sm'>Interval: {intervalSec.toFixed(2)} s</label>
-                <input id='timestep-length-slider' class='slider' type='range' min='0.1' max='2.0' step='.05' 
+                <input id='timestep-length-slider' class='slider' type='range' min='0.02' max='2.0' step='.01' 
                     bind:value={intervalSec}
                     on:input={() => { if (timer) {
                         stopPlaying()

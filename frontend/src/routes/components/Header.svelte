@@ -11,6 +11,9 @@ import ThemeToggle from './ThemeToggle.svelte';
 
         <ul id="header-navbar" class="header-navbar">
             <li>
+                <a href="/about">about</a>
+            </li>
+            <li>
                 <a href="/blog">blog</a>
             </li>
             <li>

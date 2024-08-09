@@ -13,19 +13,19 @@
         @apply bg-base text-text outline outline-1 outline-slate-400 drop-shadow-md transition-colors duration-700
     }
     h1 {
-        @apply text-2xl font-bold py-2 mt-3 mb-1 text-text
+        @apply text-2xl font-bold mt-4 mb-2 text-text
     }
     h2 {
-        @apply text-xl font-bold py-2 mt-3 text-subtext1
+        @apply text-xl font-bold mt-4 mb-1 text-subtext1
     }
     h3 {
-        @apply text-lg font-semibold italic mt-5 text-subtext0
+        @apply text-lg font-semibold italic mt-4 mb-1 text-subtext0
     }
     h4 {
-
+        @apply font-bold mt-2 mb-1
     }
-    a {
-        @apply text-cyan-700 dark:text-sapphire font-semibold
+    p {
+        @apply px-3
     }
     pre {
         @apply p-2 w-full
@@ -35,9 +35,12 @@
     }
     code span {
     }
+    a {
+        @apply text-cyan-700 dark:text-sapphire font-semibold underline
+    }
     @media (hover: hover) {
         a:hover {
-            @apply invert drop-shadow-2xl transition-all duration-300 ease-in
+            @apply invert
         }
     }
     .button {
@@ -82,7 +85,7 @@
             transition-all duration-700
         }
         a {
-            @apply text-cyan-700 dark:text-sapphire text-lg font-bold
+            @apply no-underline text-lg font-bold
         }
     }
     .darkMode_toggle {

@@ -36,6 +36,7 @@
   },
   "type": "module",
   "dependencies": {
+    "@rodneylab/svelte-social-icons": "^0.0.30",
     "@svelte-dev/pretty-code": "^1.0.0",
     "@sveltejs/adapter-node": "^5.2.0",
     "remark-breaks": "^4.0.0",
