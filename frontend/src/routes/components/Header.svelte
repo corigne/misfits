@@ -9,7 +9,7 @@ import ThemeToggle from './ThemeToggle.svelte';
             <b>{config.title}</b>
         </a>
 
-        <ul id="header-navbar" class="header-navbar">
+        <ul id="header-navbar" class="header-navbar flex-row flex-wrap">
             <li>
                 <a href="/about">about</a>
             </li>
