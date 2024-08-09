@@ -9,18 +9,18 @@ import * as config from '../lib/config'
     <title>{config.title}</title>
     <meta name="description" content={config.description}/>
 
-    <meta property="og:url" content="https://jodoin.io">
+    <meta property="og:url" content={config.url}>
     <meta property="og:type" content="website">
-    <meta property="og:title" content="njodoin::devlog">
-    <meta property="og:description" content="devlog and resume site made with SvelteKit">
-    <meta property="og:image" content="og-image.png">
+    <meta property="og:title" content={config.title}>
+    <meta property="og:description" content={config.description}>
+    <meta property="og:image" content={config.url + '/og-image.png'}>
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta property="twitter:domain" content="jodoin.io">
-    <meta property="twitter:url" content="https://jodoin.io">
-    <meta name="twitter:title" content="njodoin::devlog">
-    <meta name="twitter:description" content="devlog and resume site made with SvelteKit">
-    <meta name="twitter:image" content="og-twitter">
+    <meta property="twitter:domain" content={config.domain}>
+    <meta property="twitter:url" content={config.url}>
+    <meta name="twitter:title" content={config.title}>
+    <meta name="twitter:description" content={config.description}>
+    <meta name="twitter:image" content={config.url + '/og-image.png'}>
 
     <link rel="alternate" type="application/rss+xml" title="Subscribe to the jodoin.io RSS Feed!" href={`${config.url}/rss.xml`} />
 
