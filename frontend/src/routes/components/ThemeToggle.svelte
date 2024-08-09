@@ -15,6 +15,7 @@ onMount(() => {
 </script>
 <button
     id="dark-mode-toggle"
+    aria-label="Theme Toggle"
     class={ "darkMode_toggle " + (isLoading && "text-crust") }
     on:click={ () => { darkMode = toggleTheme()} }
 >

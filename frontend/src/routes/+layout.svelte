@@ -2,11 +2,13 @@
 import Footer from "./components/Footer.svelte"
 import Header from "./components/Header.svelte"
 import '../app.css'
-import { url } from '../lib/config'
+import * as config from '../lib/config'
 </script>
 
 <svelte:head>
-    <link rel="alternate" type="application/rss+xml" title="Subscribe to the jodoin.io RSS Feed!" href={`${url}/rss.xml`} />
+    <title>{config.title}</title>
+    <meta name="description" content={config.description}/>
+    <link rel="alternate" type="application/rss+xml" title="Subscribe to the jodoin.io RSS Feed!" href={`${config.url}/rss.xml`} />
     <script>
     // On page load or when changing themes, best to add inline in `head` to avoid FOUC
     if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -23,7 +25,6 @@ import { url } from '../lib/config'
     <style>
     @import url("//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css");
     </style>
-
 </svelte:head>
 
 
