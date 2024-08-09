@@ -4,7 +4,8 @@
 
 <div class="flex flex-col text-center">
 
-    # Welcome, いっらしゃいませ！
+    ## Welcome, いっらしゃいませ！
+
     This is my devblog and personal site.
 
     <Grid 
