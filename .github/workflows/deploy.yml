@@ -36,4 +36,4 @@ jobs:
           script: |
             export NVM_DIR=~/.nvm
             source ~/.nvm/nvm.sh
-            systecmtl restart jodoin.io.service
+            systemctl --user restart jodoin.io.service
