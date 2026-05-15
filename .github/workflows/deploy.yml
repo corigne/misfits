@@ -40,6 +40,7 @@ jobs:
 
       - name: Setup SSH key
         run: |
+          mkdir -p ~/.ssh
           install -m 600 /dev/null ~/.ssh/deploy_key
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
           echo "StrictHostKeyChecking no" >> ~/.ssh/config
