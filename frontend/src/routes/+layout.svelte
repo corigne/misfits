@@ -24,6 +24,9 @@ import * as config from '../lib/config'
 
     <link rel="alternate" type="application/rss+xml" title="Subscribe to the jodoin.io RSS Feed!" href={`${config.url}/rss.xml`} />
 
+    <link rel="preload" href="/fonts/hack-regular-subset.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="/fonts/hack-bold-subset.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+
     <script>
     if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         document.documentElement.classList.add('dark')
