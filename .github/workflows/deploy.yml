@@ -57,8 +57,6 @@ jobs:
           script: |
             export PATH="/home/nexus/.local/share/fnm/node-versions/v22.4.1/installation/bin:$PATH"
             export XDG_RUNTIME_DIR=/run/user/$(id -u)
-            cd /home/nexus/$DOMAIN
+            cd /home/nexus/jodoin.io
             npm ci --omit=dev
             systemctl --user restart jodoin.io.service
-        env:
-          DOMAIN: ${{ secrets.DOMAIN }}
