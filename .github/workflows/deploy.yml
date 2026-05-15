@@ -10,7 +10,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -38,39 +38,26 @@ jobs:
           oauth-secret: ${{ secrets.TAILSCALE_OAUTH_SECRET }}
           tags: tag:ci
 
-      - name: Deploy artifacts to server
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          port: ${{ secrets.PORT }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: "frontend/build,frontend/package.json,frontend/package-lock.json"
-          target: "/home/nexus/${{ secrets.DOMAIN }}"
-          rm: true
-          strip_components: 1
+      - name: Setup SSH key
+        run: |
+          install -m 600 /dev/null ~/.ssh/deploy_key
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
+          echo "StrictHostKeyChecking no" >> ~/.ssh/config
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Connect to Tailscale
-        uses: tailscale/github-action@v3
-        with:
-          oauth-client-id: ${{ secrets.TAILSCALE_OAUTH_CLIENT_ID }}
-          oauth-secret: ${{ secrets.TAILSCALE_OAUTH_SECRET }}
-          tags: tag:ci
+      - name: Deploy artifacts via rsync
+        run: |
+          rsync -az --delete \
+            -e "ssh -i ~/.ssh/deploy_key -p ${{ secrets.PORT }}" \
+            frontend/build/ frontend/package.json frontend/package-lock.json \
+            ${{ secrets.USERNAME }}@${{ secrets.HOST }}:/home/nexus/${{ secrets.DOMAIN }}/
 
-      - name: Install dependencies and restart service
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: ${{ secrets.PORT }}
-          script: |
+      - name: Install deps and restart service
+        run: |
+          ssh -i ~/.ssh/deploy_key -p ${{ secrets.PORT }} \
+            ${{ secrets.USERNAME }}@${{ secrets.HOST }} '
             export PATH="/home/nexus/.local/share/fnm/node-versions/v22.4.1/installation/bin:$PATH"
             export XDG_RUNTIME_DIR=/run/user/$(id -u)
             cd /home/nexus/jodoin.io
             npm ci --omit=dev
             systemctl --user restart jodoin.io.service
+          '
