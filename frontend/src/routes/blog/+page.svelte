@@ -23,17 +23,23 @@
 </section>
 
 <style>
+@reference "../../app.css";
+
 .post-container {
-    @apply w-full md:w-1/2 xl:w-1/3 2xl:w-1/4 p-1
+    @apply w-full p-1;
+    @media (min-width: 768px) { width: 50%; }
+    @media (min-width: 1280px) { width: 33.333333%; }
+    @media (min-width: 1536px) { width: 25%; }
 }
 .post {
-    @apply border-overlay2 border bg-crust p-1 drop-shadow-sm w-full
-}
-.post {
+    @apply border-overlay2 border bg-crust p-1 drop-shadow-sm w-full;
     border-style: outset;
 }
 .post:hover {
-    @apply drop-shadow-md bg-mantle translate-y-1 transition-all duration-300 ease-in-out 
-    motion-reduce:transition-none motion-reduce:transform-none
+    @apply drop-shadow-md bg-mantle translate-y-1 transition-all duration-300 ease-in-out;
+    @media (prefers-reduced-motion: reduce) {
+        transition: none;
+        transform: none;
+    }
 }
 </style>

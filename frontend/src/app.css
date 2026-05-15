@@ -1,6 +1,141 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@font-face {
+    font-family: 'Hack';
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    src: url('/fonts/hack-regular-subset.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Hack';
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+    src: url('/fonts/hack-bold-subset.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Hack';
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+    src: url('/fonts/hack-italic-subset.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Hack';
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+    src: url('/fonts/hack-bolditalic-subset.woff2') format('woff2');
+}
+
+@import "tailwindcss";
+
+/* Use .dark class on <html> for dark mode (matches existing theme toggle) */
+@variant dark (&:where(.dark, .dark *));
+
+/* ─── Catppuccin Latte (light mode) ─────────────────────────── */
+:root {
+    --ctp-rosewater: #dc8a78;
+    --ctp-flamingo:  #dd7878;
+    --ctp-pink:      #ea76cb;
+    --ctp-mauve:     #8839ef;
+    --ctp-red:       #d20f39;
+    --ctp-maroon:    #e64553;
+    --ctp-peach:     #fe640b;
+    --ctp-yellow:    #df8e1d;
+    --ctp-green:     #40a02b;
+    --ctp-teal:      #179299;
+    --ctp-sky:       #04a5e5;
+    --ctp-sapphire:  #209fb5;
+    --ctp-blue:      #1e66f5;
+    --ctp-lavender:  #7287fd;
+    --ctp-text:      #4c4f69;
+    --ctp-subtext1:  #5c5f77;
+    --ctp-subtext0:  #6c6f85;
+    --ctp-overlay2:  #7c7f93;
+    --ctp-overlay1:  #8c8fa1;
+    --ctp-overlay0:  #9ca0b0;
+    --ctp-surface2:  #acb0be;
+    --ctp-surface1:  #bcc0cc;
+    --ctp-surface0:  #ccd0da;
+    --ctp-base:      #eff1f5;
+    --ctp-mantle:    #e6e9ef;
+    --ctp-crust:     #dce0e8;
+}
+
+/* ─── Catppuccin Mocha (dark mode) ──────────────────────────── */
+.dark {
+    --ctp-rosewater: #f5e0dc;
+    --ctp-flamingo:  #f2cdcd;
+    --ctp-pink:      #f5c2e7;
+    --ctp-mauve:     #cba6f7;
+    --ctp-red:       #f38ba8;
+    --ctp-maroon:    #eba0ac;
+    --ctp-peach:     #fab387;
+    --ctp-yellow:    #f9e2af;
+    --ctp-green:     #a6e3a1;
+    --ctp-teal:      #94e2d5;
+    --ctp-sky:       #89dceb;
+    --ctp-sapphire:  #74c7ec;
+    --ctp-blue:      #89b4fa;
+    --ctp-lavender:  #b4befe;
+    --ctp-text:      #cdd6f4;
+    --ctp-subtext1:  #bac2de;
+    --ctp-subtext0:  #a6adc8;
+    --ctp-overlay2:  #9399b2;
+    --ctp-overlay1:  #7f849c;
+    --ctp-overlay0:  #6c7086;
+    --ctp-surface2:  #585b70;
+    --ctp-surface1:  #45475a;
+    --ctp-surface0:  #313244;
+    --ctp-base:      #1e1e2e;
+    --ctp-mantle:    #181825;
+    --ctp-crust:     #11111b;
+}
+
+/* ─── Register as Tailwind theme colors (unprefixed, matching existing classes) */
+@theme inline {
+    --color-rosewater: var(--ctp-rosewater);
+    --color-flamingo:  var(--ctp-flamingo);
+    --color-pink:      var(--ctp-pink);
+    --color-mauve:     var(--ctp-mauve);
+    --color-red:       var(--ctp-red);
+    --color-maroon:    var(--ctp-maroon);
+    --color-peach:     var(--ctp-peach);
+    --color-yellow:    var(--ctp-yellow);
+    --color-green:     var(--ctp-green);
+    --color-teal:      var(--ctp-teal);
+    --color-sky:       var(--ctp-sky);
+    --color-sapphire:  var(--ctp-sapphire);
+    --color-blue:      var(--ctp-blue);
+    --color-lavender:  var(--ctp-lavender);
+    --color-text:      var(--ctp-text);
+    --color-subtext1:  var(--ctp-subtext1);
+    --color-subtext0:  var(--ctp-subtext0);
+    --color-overlay2:  var(--ctp-overlay2);
+    --color-overlay1:  var(--ctp-overlay1);
+    --color-overlay0:  var(--ctp-overlay0);
+    --color-surface2:  var(--ctp-surface2);
+    --color-surface1:  var(--ctp-surface1);
+    --color-surface0:  var(--ctp-surface0);
+    --color-base:      var(--ctp-base);
+    --color-mantle:    var(--ctp-mantle);
+    --color-crust:     var(--ctp-crust);
+}
+
+/* ─── Typography & grid config (migrated from tailwind.config.js) */
+@theme {
+    --font-sans:      Hack, sans-serif;
+    --font-monospace: "Hack Mono", monospace;
+
+    --grid-template-columns-13: repeat(13, minmax(0, 1fr));
+    --grid-template-columns-14: repeat(14, minmax(0, 1fr));
+    --grid-template-columns-15: repeat(15, minmax(0, 1fr));
+    --grid-template-columns-16: repeat(16, minmax(0, 1fr));
+    --grid-template-columns-17: repeat(17, minmax(0, 1fr));
+    --grid-template-columns-18: repeat(18, minmax(0, 1fr));
+    --grid-template-columns-19: repeat(19, minmax(0, 1fr));
+    --grid-template-columns-20: repeat(20, minmax(0, 1fr));
+}
 
 @layer base {
     html {

@@ -1,6 +1,6 @@
 <div class="flex flex-col md:flex-row items-center gap-0 md:gap-4 ">
     <aside class="w-1/4 flex justify-center">
-        <img class="me max-w-[8rem] md:max-w-[12rem]" alt='pixel art of Nathan Jodoin' src="me-pixelated.png"/>
+        <img class="me max-w-[8rem] md:max-w-[12rem]" alt='pixel art of Nathan Jodoin' src="me-pixelated.png" loading="lazy"/>
     </aside>
 
     <article class="p-0 md:p-4">

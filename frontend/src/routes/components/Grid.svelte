@@ -1,42 +1,11 @@
 <script lang='ts' context='module'>
+import { Models } from '$lib/gridModels'
+import type { Model } from '$lib/gridModels'
+export { Models }
 
-type Model  = { numStates: number, ruleset: Function }
-type ModelMap = {
-    [key: string]: Model
-}
-
-const liveNeighbors = (arr: number[][], x:number, y:number): number => {
-    return (arr[x-1]?.[y] ? 1 : 0)
-        + (arr[x-1]?.[y+1] ? 1 : 0)
-        + (arr[x-1]?.[y-1] ? 1 : 0) 
-        + (arr[x+1]?.[y-1] ? 1 : 0)
-        + (arr[x+1]?.[y] ? 1 : 0)
-        + (arr[x+1]?.[y+1] ? 1 : 0)
-        + (arr[x]?.[y-1] ? 1 : 0)
-        + (arr[x]?.[y+1] ? 1 : 0)
-}
-const Conway = (arr: number[][]): number[][] => {
-    return arr.map((col, xIndex) => {
-        return col.map((cell, yIndex) => {
-            const livingNeighbors = liveNeighbors(arr, xIndex, yIndex)
-            if (cell && (livingNeighbors === 2 || livingNeighbors ===3)) { return 1 }
-            else if (!cell && livingNeighbors === 3) { return 1 }
-            return 0
-        })
-    })
-}
 const wait = (ms: number) => {
-    var start = Date.now(),
-    now = start;
-    while (now - start < ms) {
-        now = Date.now();
-    }
-}
-
-export const Models: ModelMap = {
-    DEFAULT: {numStates: 1, ruleset: () => {}},
-    CONWAY: {numStates: 2, ruleset: Conway},
-    TEST_COLORS: {numStates: 9, ruleset: () => {}}
+    const start = Date.now()
+    while (Date.now() - start < ms) { /* busy wait */ }
 }
 </script>
 
@@ -119,7 +88,8 @@ if (seed) {
 }
 
 onMount(() => {
-    if(isAutoplayed) {
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    if (isAutoplayed && !reducedMotion) {
         let observer = new IntersectionObserver((entries: IntersectionObserverEntry[]) => {
             entries.forEach((entry: IntersectionObserverEntry) => {
                 if(entry.target === grid) {

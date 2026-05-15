@@ -13,7 +13,7 @@ export async function entries() {
     });
 }
 
-//export const prerender = true;
+export const prerender = true;
 
 interface RestParams extends RouteParams {
     slug: string

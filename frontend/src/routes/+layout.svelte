@@ -35,10 +35,6 @@ import * as config from '../lib/config'
         node.classList.remove('preload-transitions');
     })
     </script>
-
-    <style>
-    @import url("//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css");
-    </style>
 </svelte:head>
 
 <div class="flex flex-col h-screen items-center overflow-scroll">
