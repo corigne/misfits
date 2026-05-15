@@ -1,39 +1,64 @@
-name: Prepare and Publish
+name: Build and Deploy
 
 on:
   workflow_dispatch:
-  workflow_run:
-    workflows: ["Build, Test and Transfer"]
-    types: [completed]
+  push:
+    branches: [main]
+
+concurrency:
+  group: jodoin-production
+  cancel-in-progress: true
 
 jobs:
-  Prepare:
+  build:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
-      - uses: appleboy/ssh-action@v1.0.3
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install dependencies
+        working-directory: ./frontend
+        run: npm ci
+
+      - name: Build
+        working-directory: ./frontend
+        run: npm run build
+
+      - name: Deploy artifacts to server
+        uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.PORT }}
-          script: | 
-            export NVM_DIR=~/.nvm
-            source ~/.nvm/nvm.sh
-            cd ~/${{ secrets.DOMAIN }}
-            npm ci --omit dev
-  Publish:
-    needs: [Prepare]
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: "frontend/build,frontend/package.json,frontend/package-lock.json"
+          target: "/home/nexus/${{ secrets.DOMAIN }}"
+          rm: true
+          strip_components: 1
+
+  deploy:
+    needs: build
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
-      - uses: appleboy/ssh-action@v1.0.3
+      - name: Install dependencies and restart service
+        uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            export NVM_DIR=~/.nvm
-            source ~/.nvm/nvm.sh
+            export PATH="/home/nexus/.local/share/fnm/node-versions/v22.4.1/installation/bin:$PATH"
+            export XDG_RUNTIME_DIR=/run/user/$(id -u)
+            cd /home/nexus/$DOMAIN
+            npm ci --omit=dev
             systemctl --user restart jodoin.io.service
+        env:
+          DOMAIN: ${{ secrets.DOMAIN }}
